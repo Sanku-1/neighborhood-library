@@ -55,5 +55,13 @@ public class Book {
         this.checkedOutTo = checkedOutTo;
     }
 
+    public void checkOut(String name){
+        this.setCheckedOutTo(name);
+        this.setIsCheckedOut(true);
+    }
 
+    public void checkIn(){
+        this.setCheckedOutTo("");
+        this.setIsCheckedOut(false);
+    }
 }
