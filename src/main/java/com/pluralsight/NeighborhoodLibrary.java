@@ -37,17 +37,42 @@ public class NeighborhoodLibrary {
                 System.out.println("Please select from the following options:");
                 System.out.println("1. Show Available Books");
                 System.out.println("2. Show Checked Out Books");
-                System.out.println("3. Exit program");
+                System.out.println("3. Exit");
 
                 int command = libraryScanner.nextInt();
+//                String checkOutSelection = libraryScanner.nextLine();
+
+
                 libraryScanner.nextLine();
 
                 switch (command) {
                     case 1:
                         ShowAvailableBooks();
-                        break;
+                        System.out.println("Please select from the following options:");
+                        System.out.println("1. Check out a book");
+                        System.out.println("2. Return to main menu");
+                        int command1 = libraryScanner.nextInt();
+                        libraryScanner.nextLine();
+                        switch (command1) {
+                            case 6:
+                                System.out.println("Please enter the ID of the book you wish to check out");
+                                int checkOutSelection = libraryScanner.nextInt();
+                                libraryScanner.nextLine();
+                                System.out.println("Please enter your full name");
+                                String offeredName = libraryScanner.nextLine();
+                                CheckID(checkOutSelection, offeredName);
+                            case 7:
+                                break;
+                        }
                     case 2:
                         ShowCheckedOutBooks();
+                        break;
+                    case 3:
+                        System.out.println("We hope you enjoyed your visit to the library!");
+                        isDone = true;
+                        break;
+                    default:
+                        System.out.println("Invalid command.");
                         break;
                 }
             }
@@ -86,4 +111,17 @@ public class NeighborhoodLibrary {
             System.out.println("There are no currently checked out books");
         }
     }
+
+    public static void CheckID(int id, String name) {
+        try {
+            for (int i = 0; i < numBooks; i++) {
+                if (books[i].getId() == id) {
+                    books[i].checkOut(name);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+        }
+    }
 }
+
