@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.Scanner;
+
 public class NeighborhoodLibrary {
     private static Book[] books = new Book[25];
     private static int numBooks = 20;
@@ -28,12 +30,20 @@ public class NeighborhoodLibrary {
             books[20] = new Book(21, "9780375507250", "Cloud Atlas", false, "");
 
             boolean isDone = false;
+            Scanner libraryScanner = new Scanner(System.in);
 
             while (!isDone) {
                 System.out.println("Please select from the following options:");
                 System.out.println("1. Show Available Books");
                 System.out.println("2. Show Checked Books");
                 System.out.println("3. Exit program");
+
+                int command = libraryScanner.nextInt();
+                libraryScanner.nextLine();
+
+                switch (command) {
+
+                }
             }
         } catch (Exception e) {
             System.err.println("System error");
