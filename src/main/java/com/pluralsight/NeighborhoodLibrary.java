@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class NeighborhoodLibrary {
     private static Book[] books = new Book[25];
-    private static int numBooks = 20;
+    private static int numBooks = 21;
+
     public static void main(String[] args) {
         try {
             books[0] = new Book(1, "9780765376671", "The Way of Kings", false, "");
@@ -35,7 +36,7 @@ public class NeighborhoodLibrary {
             while (!isDone) {
                 System.out.println("Please select from the following options:");
                 System.out.println("1. Show Available Books");
-                System.out.println("2. Show Checked Books");
+                System.out.println("2. Show Checked Out Books");
                 System.out.println("3. Exit program");
 
                 int command = libraryScanner.nextInt();
@@ -45,6 +46,9 @@ public class NeighborhoodLibrary {
                     case 1:
                         ShowAvailableBooks();
                         break;
+                    case 2:
+                        ShowCheckedOutBooks();
+                        break;
                 }
             }
         } catch (Exception e) {
@@ -52,12 +56,34 @@ public class NeighborhoodLibrary {
         }
 
     }
-    public static void ShowAvailableBooks(){
-        System.out.println("Available Books:");
 
+    public static void ShowAvailableBooks() {
+        System.out.println("Available Books:");
+        System.out.println("ID" + " | " + "ISBN" + " | " + "Title");
+        int availableCounter = 0;
         for (int i = 0; i < numBooks; i++) {
-            System.out.println(books[i].toString());
+            if (!books[i].getIsCheckedOut()) {
+                System.out.println(books[i].toString());
+                availableCounter++;
+            }
+        }
+        if (availableCounter == 0) {
+            System.out.println("There are no currently available books");
         }
     }
 
+    public static void ShowCheckedOutBooks() {
+        System.out.println("Checked Out Books:");
+        System.out.println("ID" + " | " + "ISBN" + " | " + "Title");
+        int checkedOutCounter = 0;
+        for (int i = 0; i < numBooks; i++) {
+            if (books[i].getIsCheckedOut()) {
+                System.out.println(books[i].toString());
+                checkedOutCounter++;
+            }
+        }
+        if (checkedOutCounter == 0) {
+            System.out.println("There are no currently checked out books");
+        }
+    }
 }

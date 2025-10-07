@@ -65,6 +65,6 @@ public class Book {
         this.setIsCheckedOut(false);
     }
     public String toString() {
-        return getId() + " | " + getIsbn() + " | " + getTitle() + " | " + getIsCheckedOut() + " | " + getIsCheckedOut();
+        return getId() + " | " + getIsbn() + " | " + getTitle();
     }
 }
