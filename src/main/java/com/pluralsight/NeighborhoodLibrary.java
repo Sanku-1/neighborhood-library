@@ -42,11 +42,22 @@ public class NeighborhoodLibrary {
                 libraryScanner.nextLine();
 
                 switch (command) {
-
+                    case 1:
+                        ShowAvailableBooks();
+                        break;
                 }
             }
         } catch (Exception e) {
             System.err.println("System error");
         }
+
     }
+    public static void ShowAvailableBooks(){
+        System.out.println("Available Books:");
+
+        for (int i = 0; i < numBooks; i++) {
+            System.out.println(books[i].toString());
+        }
+    }
+
 }
