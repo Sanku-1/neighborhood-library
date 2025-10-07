@@ -35,39 +35,41 @@ public class NeighborhoodLibrary {
 
             while (!isDone) {
                 System.out.println("Please select from the following options:");
-                System.out.println("1. Show Available Books");
-                System.out.println("2. Show Checked Out Books");
-                System.out.println("3. Exit");
+                System.out.println("a. Show Available Books");
+                System.out.println("b. Show Checked Out Books");
+                System.out.println("c. Exit");
 
-                int command = libraryScanner.nextInt();
+                String command = libraryScanner.next();
 //                String checkOutSelection = libraryScanner.nextLine();
 
 
                 libraryScanner.nextLine();
 
                 switch (command) {
-                    case 1:
+                    case "a":
                         ShowAvailableBooks();
                         System.out.println("Please select from the following options:");
-                        System.out.println("1. Check out a book");
-                        System.out.println("2. Return to main menu");
-                        int command1 = libraryScanner.nextInt();
+                        System.out.println("d. Check out a book");
+                        System.out.println("e. Return to main menu");
+                        String command1 = libraryScanner.next();
                         libraryScanner.nextLine();
                         switch (command1) {
-                            case 6:
+                            case "d":
                                 System.out.println("Please enter the ID of the book you wish to check out");
                                 int checkOutSelection = libraryScanner.nextInt();
                                 libraryScanner.nextLine();
                                 System.out.println("Please enter your full name");
                                 String offeredName = libraryScanner.nextLine();
                                 CheckID(checkOutSelection, offeredName);
-                            case 7:
+                                break;
+                            case "e":
                                 break;
                         }
-                    case 2:
+                        break;
+                    case "b":
                         ShowCheckedOutBooks();
                         break;
-                    case 3:
+                    case "c":
                         System.out.println("We hope you enjoyed your visit to the library!");
                         isDone = true;
                         break;
