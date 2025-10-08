@@ -126,11 +126,11 @@ public class NeighborhoodLibrary {
 
     public static void ShowCheckedOutBooks() {
         System.out.println("Checked Out Books:");
-        System.out.println("ID" + " | " + "ISBN" + " | " + "Title");
+        System.out.println("ID" + " | " + "ISBN" + " | " + "Title" + "Checked Out to:");
         int checkedOutCounter = 0;
         for (int i = 0; i < numBooks; i++) {
             if (books[i].getIsCheckedOut()) {
-                System.out.println(books[i].toString());
+                System.out.println(books[i].toString(""));
                 checkedOutCounter++;
             }
         }
