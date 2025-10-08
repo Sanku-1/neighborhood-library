@@ -8,6 +8,7 @@ public class NeighborhoodLibrary {
 
     public static void main(String[] args) {
         try {
+            //Creating books to place into library/array
             books[0] = new Book(1, "9780765376671", "The Way of Kings", false, "");
             books[1] = new Book(2, "9780375826696", "Eragon", false, "");
             books[2] = new Book(3, "9780735211299", "Atomic Habits", false, "");
@@ -33,6 +34,7 @@ public class NeighborhoodLibrary {
             boolean isDone = false;
             Scanner libraryScanner = new Scanner(System.in);
 
+            //Library User Menu
             while (!isDone) {
                 System.out.println("Please select from the following options:");
                 System.out.println("A. Show Available Books");
@@ -40,8 +42,6 @@ public class NeighborhoodLibrary {
                 System.out.println("X. Exit");
 
                 String command = libraryScanner.next();
-//                String checkOutSelection = libraryScanner.nextLine();
-
 
                 libraryScanner.nextLine();
 
@@ -109,6 +109,7 @@ public class NeighborhoodLibrary {
 
     }
 
+    //Shows list of books that are available for checkout
     public static void ShowAvailableBooks() {
         System.out.println("Available Books:");
         System.out.println("ID" + " | " + "ISBN" + " | " + "Title");
@@ -124,6 +125,7 @@ public class NeighborhoodLibrary {
         }
     }
 
+    //Shows list of books that are currently checked out
     public static void ShowCheckedOutBooks() {
         System.out.println("Checked Out Books:");
         System.out.println("ID" + " | " + "ISBN" + " | " + "Title" + " | " + "Checked Out By");
