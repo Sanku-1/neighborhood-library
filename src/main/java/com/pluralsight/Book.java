@@ -67,6 +67,7 @@ public class Book {
     public String toString() {
         return getId() + " | " + getIsbn() + " | " + getTitle();
     }
+
     //Overloaded toString to output who a book is checked out to as well
     public String toString(String name) {
         return getId() + " | " + getIsbn() + " | " + getTitle() + " | " + getCheckedOutTo();
