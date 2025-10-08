@@ -126,7 +126,7 @@ public class NeighborhoodLibrary {
 
     public static void ShowCheckedOutBooks() {
         System.out.println("Checked Out Books:");
-        System.out.println("ID" + " | " + "ISBN" + " | " + "Title" + "Checked Out to:");
+        System.out.println("ID" + " | " + "ISBN" + " | " + "Title" + " | " + "Checked Out By");
         int checkedOutCounter = 0;
         for (int i = 0; i < numBooks; i++) {
             if (books[i].getIsCheckedOut()) {
