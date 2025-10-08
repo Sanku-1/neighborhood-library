@@ -61,8 +61,12 @@ public class NeighborhoodLibrary {
                                 System.out.println("Please enter your full name");
                                 String offeredName = libraryScanner.nextLine();
                                 CheckID(checkOutSelection, offeredName);
+                                System.out.println();
                                 break;
                             case "e":
+                                break;
+                            default:
+                                System.out.println("Invalid command.");
                                 break;
                         }
                         break;
@@ -119,6 +123,7 @@ public class NeighborhoodLibrary {
             for (int i = 0; i < numBooks; i++) {
                 if (books[i].getId() == id) {
                     books[i].checkOut(name);
+                    System.out.println(books[i].getTitle() + " has been checked out to " + name);
                 }
             }
         } catch (Exception e) {
