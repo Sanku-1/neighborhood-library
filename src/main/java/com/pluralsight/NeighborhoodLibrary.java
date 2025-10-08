@@ -35,9 +35,9 @@ public class NeighborhoodLibrary {
 
             while (!isDone) {
                 System.out.println("Please select from the following options:");
-                System.out.println("a. Show Available Books");
-                System.out.println("b. Show Checked Out Books");
-                System.out.println("c. Exit");
+                System.out.println("A. Show Available Books");
+                System.out.println("B. Show Checked Out Books");
+                System.out.println("X. Exit");
 
                 String command = libraryScanner.next();
 //                String checkOutSelection = libraryScanner.nextLine();
@@ -46,15 +46,15 @@ public class NeighborhoodLibrary {
                 libraryScanner.nextLine();
 
                 switch (command) {
-                    case "a":
+                    case "A":
                         ShowAvailableBooks();
                         System.out.println("Please select from the following options:");
-                        System.out.println("d. Check out a book");
-                        System.out.println("e. Return to main menu");
+                        System.out.println("C. Check out a book");
+                        System.out.println("X. Return to main menu");
                         String command1 = libraryScanner.next();
                         libraryScanner.nextLine();
                         switch (command1) {
-                            case "d":
+                            case "C":
                                 System.out.println("Please enter the ID of the book you wish to check out");
                                 int checkOutSelection = libraryScanner.nextInt();
                                 libraryScanner.nextLine();
@@ -63,18 +63,18 @@ public class NeighborhoodLibrary {
                                 CheckID(checkOutSelection, offeredName);
                                 System.out.println();
                                 break;
-                            case "e":
+                            case "X":
                                 break;
                             default:
                                 System.out.println("Invalid command.");
                                 break;
                         }
                         break;
-                    case "b":
+                    case "B":
                         ShowCheckedOutBooks();
                         System.out.println("Please select from the following options:");
-                        System.out.println("d. Check in a book");
-                        System.out.println("e. Return to main menu");
+                        System.out.println("C. Check in a book");
+                        System.out.println("X. Return to main menu");
                         String command2 = libraryScanner.next();
                         libraryScanner.nextLine();
                         switch (command2) {
@@ -94,7 +94,7 @@ public class NeighborhoodLibrary {
                                 break;
                         }
                         break;
-                    case "c":
+                    case "X":
                         System.out.println("We hope you enjoyed your visit to the library!");
                         isDone = true;
                         break;
