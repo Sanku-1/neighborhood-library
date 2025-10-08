@@ -47,7 +47,7 @@ public class NeighborhoodLibrary {
 
                 switch (command) {
                     case "A":
-                        ShowAvailableBooks();
+                        showAvailableBooks();
                         System.out.println("Please select from the following options:");
                         System.out.println("C. Check out a book");
                         System.out.println("X. Return to main menu");
@@ -60,7 +60,7 @@ public class NeighborhoodLibrary {
                                 libraryScanner.nextLine();
                                 System.out.println("Please enter your full name");
                                 String offeredName = libraryScanner.nextLine();
-                                CheckID(checkOutSelection, offeredName);
+                                checkID(checkOutSelection, offeredName);
                                 System.out.println();
                                 break;
                             case "X":
@@ -71,7 +71,7 @@ public class NeighborhoodLibrary {
                         }
                         break;
                     case "B":
-                        ShowCheckedOutBooks();
+                        showCheckedOutBooks();
                         System.out.println("Please select from the following options:");
                         System.out.println("C. Check in a book");
                         System.out.println("X. Return to main menu");
@@ -84,7 +84,7 @@ public class NeighborhoodLibrary {
                                 libraryScanner.nextLine();
                                 System.out.println("Please enter your full name");
                                 String offeredName1 = libraryScanner.nextLine();
-                                CheckIDReturn(checkOutSelection1, offeredName1);
+                                checkIDReturn(checkOutSelection1, offeredName1);
                                 System.out.println();
                                 break;
                             case "X":
@@ -110,7 +110,7 @@ public class NeighborhoodLibrary {
     }
 
     //Shows list of books that are available for checkout
-    public static void ShowAvailableBooks() {
+    public static void showAvailableBooks() {
         System.out.println("Available Books:");
         System.out.println("ID" + " | " + "ISBN" + " | " + "Title");
         int availableCounter = 0;
@@ -126,7 +126,7 @@ public class NeighborhoodLibrary {
     }
 
     //Shows list of books that are currently checked out
-    public static void ShowCheckedOutBooks() {
+    public static void showCheckedOutBooks() {
         System.out.println("Checked Out Books:");
         System.out.println("ID" + " | " + "ISBN" + " | " + "Title" + " | " + "Checked Out By");
         int checkedOutCounter = 0;
@@ -142,7 +142,7 @@ public class NeighborhoodLibrary {
     }
 
     //Checks inputted Book ID to see if it exists in the library, then checks it out to the specified recipient
-    public static void CheckID(int id, String name) {
+    public static void checkID(int id, String name) {
         try {
             if (id < 1 || id > (numBooks + 1)) {
                 System.out.println("There is no book with the specified id in this library");
@@ -162,7 +162,7 @@ public class NeighborhoodLibrary {
     }
 
     //Checks inputted Book ID to see if it exists in the library and is currently checked out to the specified recipient, then checks it back into the library
-    public static void CheckIDReturn(int id, String name) {
+    public static void checkIDReturn(int id, String name) {
         try {
             if (id < 1 || id > (numBooks + 1)) {
                 System.out.println("There is no book with the specified id in this library");
