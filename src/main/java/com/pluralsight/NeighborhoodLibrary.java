@@ -139,12 +139,17 @@ public class NeighborhoodLibrary {
         }
     }
 
+    //Checks inputted Book ID to see if it exists in the library, then checks it out to the specified recipient
     public static void CheckID(int id, String name) {
         try {
-            for (int i = 0; i < numBooks; i++) {
-                if (books[i].getId() == id && !books[i].getIsCheckedOut()) {
-                    books[i].checkOut(name);
-                    System.out.println(books[i].getTitle() + " has been checked out to " + name);
+            if (id < 1 || id > (numBooks + 1)) {
+                System.out.println("There is no book with the specified id in this library");
+            } else {
+                for (int i = 0; i < numBooks; i++) {
+                    if (books[i].getId() == id && !books[i].getIsCheckedOut()) {
+                        books[i].checkOut(name);
+                        System.out.println(books[i].getTitle() + " has been checked out to " + name);
+                    }
                 }
             }
         } catch (Exception e) {
@@ -152,18 +157,25 @@ public class NeighborhoodLibrary {
         }
     }
 
+    //Checks inputted Book ID to see if it exists in the library and is currently checked out to the specified recipient, then checks it back into the library
     public static void CheckIDReturn(int id, String name) {
         try {
-            for (int i = 0; i < numBooks; i++) {
-                if (books[i].getId() == id && books[i].getIsCheckedOut() && books[i].getCheckedOutTo().equalsIgnoreCase(name)) {
-                    books[i].checkIn();
-                    System.out.println(books[i].getTitle() + " has been checked in by " + name);
-                } else if (books[i].getId() == id && books[i].getIsCheckedOut() && !books[i].getCheckedOutTo().equalsIgnoreCase(name)) {
-                    System.out.println(books[i].getTitle() + " is not currently checked out to " + name);
+            if (id < 1 || id > (numBooks + 1)) {
+                System.out.println("There is no book with the specified id in this library");
+            } else {
+                for (int i = 0; i < numBooks; i++) {
+                    if (books[i].getId() == id && books[i].getIsCheckedOut() && books[i].getCheckedOutTo().equalsIgnoreCase(name)) {
+                        books[i].checkIn();
+                        System.out.println(books[i].getTitle() + " has been checked in by " + name);
+                    } else if (books[i].getId() == id && books[i].getIsCheckedOut() && !books[i].getCheckedOutTo().equalsIgnoreCase(name)) {
+                        System.out.println(books[i].getTitle() + " is not currently checked out to " + name);
+                    } else if (books[i].getId() == id && !books[i].getIsCheckedOut()) {
+                        System.out.println(books[i].getTitle() + " is not currently checked out");
+                    }
                 }
             }
         } catch (Exception e) {
-            System.out.println("Invalid input");
+            System.err.println("Invalid input");
         }
     }
 }
