@@ -149,6 +149,8 @@ public class NeighborhoodLibrary {
                     if (books[i].getId() == id && !books[i].getIsCheckedOut()) {
                         books[i].checkOut(name);
                         System.out.println(books[i].getTitle() + " has been checked out to " + name);
+                    } else if (books[i].getId() == id && books[i].getIsCheckedOut()) {
+                        System.out.println("Sorry! " + books[i].getTitle() + " is currently checked out by another patron");
                     }
                 }
             }
