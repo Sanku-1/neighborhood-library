@@ -72,6 +72,27 @@ public class NeighborhoodLibrary {
                         break;
                     case "b":
                         ShowCheckedOutBooks();
+                        System.out.println("Please select from the following options:");
+                        System.out.println("d. Check in a book");
+                        System.out.println("e. Return to main menu");
+                        String command2 = libraryScanner.next();
+                        libraryScanner.nextLine();
+                        switch (command2) {
+                            case "C":
+                                System.out.println("Please enter the ID of the book you wish to return");
+                                int checkOutSelection1 = libraryScanner.nextInt();
+                                libraryScanner.nextLine();
+                                System.out.println("Please enter your full name");
+                                String offeredName1 = libraryScanner.nextLine();
+                                CheckIDReturn(checkOutSelection1, offeredName1);
+                                System.out.println();
+                                break;
+                            case "X":
+                                break;
+                            default:
+                                System.out.println("Invalid command.");
+                                break;
+                        }
                         break;
                     case "c":
                         System.out.println("We hope you enjoyed your visit to the library!");
@@ -121,9 +142,24 @@ public class NeighborhoodLibrary {
     public static void CheckID(int id, String name) {
         try {
             for (int i = 0; i < numBooks; i++) {
-                if (books[i].getId() == id) {
+                if (books[i].getId() == id && !books[i].getIsCheckedOut()) {
                     books[i].checkOut(name);
                     System.out.println(books[i].getTitle() + " has been checked out to " + name);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid input");
+        }
+    }
+
+    public static void CheckIDReturn(int id, String name) {
+        try {
+            for (int i = 0; i < numBooks; i++) {
+                if (books[i].getId() == id && books[i].getIsCheckedOut() && books[i].getCheckedOutTo().equalsIgnoreCase(name)) {
+                    books[i].checkIn();
+                    System.out.println(books[i].getTitle() + " has been checked in by " + name);
+                } else if (books[i].getId() == id && books[i].getIsCheckedOut() && !books[i].getCheckedOutTo().equalsIgnoreCase(name)) {
+                    System.out.println(books[i].getTitle() + " is not currently checked out to " + name);
                 }
             }
         } catch (Exception e) {
